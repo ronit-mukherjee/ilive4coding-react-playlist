@@ -6,20 +6,21 @@ import ViewModes from "./ViewModes";
 class App extends React.PureComponent {
   state = {
     viewMode: "add",
-    //dataList: [],
+    dataList: [],
   };
 
-  dataList = React.createRef();
+  //dataList = React.createRef();
 
   setViewMode(viewMode) {
     this.setState({ viewMode });
   }
+  setViewMode = this.setViewMode.bind(this);
 
   addData(data) {
-    this.dataList.current = [...this.dataList.current, data];
-    // this.setState((state) => ({
-    //   dataList: [...state.dataList, data],
-    // }));
+    //this.dataList.current = [...this.dataList.current, data];
+    this.setState((state) => ({
+      dataList: [...state.dataList, data],
+    }));
   }
   addData = this.addData.bind(this);
 
@@ -35,8 +36,12 @@ class App extends React.PureComponent {
           <div className="col-auto">
             <ViewModes
               viewMode={this.state.viewMode}
-              onSetViewMode={this.setViewMode.bind(this)}
+              onSetViewMode={this.setViewMode}
             />
+            {/* <ViewModes
+              viewMode={this.state.viewMode}
+              onSetViewMode={this.setViewMode.bind(this)}
+            /> */}
           </div>
         </div>
         <div className="row mt-5 justify-content-center">
@@ -44,8 +49,8 @@ class App extends React.PureComponent {
             {this.state.viewMode === "add" ? (
               <AddData onAddData={this.addData} />
             ) : (
-              //<ViewData data={this.state.dataList} />
-              <ViewData data={this.dataList.current} />
+              <ViewData data={this.state.dataList} />
+              //<ViewData data={this.dataList.current} />
             )}
           </div>
         </div>
@@ -55,7 +60,7 @@ class App extends React.PureComponent {
 
   componentDidMount() {
     console.log("App Mounted");
-    this.dataList.current = [];
+    //this.dataList.current = [];
   }
   componentDidUpdate() {
     console.log("App Re-Rendered/Updated");
