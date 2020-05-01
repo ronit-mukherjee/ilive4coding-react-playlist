@@ -16,6 +16,6 @@ Each video's code will be there in individual branches, it's details can be foun
           1. How you can use React Ref for storing data in your app.
           2. How  you can prevent extra re-rendering
           3. How to gain performance gain
-    - **Branch** - V6iCEC-FQas
+    - **Branch** - [V6iCEC-FQas](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/V6iCEC-FQas)
 
 For any suggestions feel free to contact me at connect.ronit@gmail.com
