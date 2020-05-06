@@ -18,4 +18,18 @@ Each video's code will be there in individual branches, it's details can be foun
           3. How to gain performance gain
     - **Branch** - [V6iCEC-FQas](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/V6iCEC-FQas)
 
+    - **Video Title-** [Hindi] 3 Ways to Prevent React Component Re-Rendering | React JS Tutorial | ILive4Coding
+    - **Video Id-** ZY4ej1DViYI
+    - **Video Link-** https://studio.youtube.com/video/ZY4ej1DViYI/
+    - **Video Description** - Preventing React Component's Re-Rendering is explained in this Hindi React JS Tutorial Video by following:- 
+        1. Use of React shouldComponentUpdate().
+        2. Use of React.PureComponent for class-based components.
+        3. Use of memo() for functional components.
+        4. React Optimization
+        5. React Performance
+        6. React Re-Rendering
+        7. React what is a Pure Component
+        8. React JS AdvancedTutorial
+    - **Branch** - [ZY4ej1DViYI](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/ZY4ej1DViYI)
+
 For any suggestions feel free to contact me at connect.ronit@gmail.com
