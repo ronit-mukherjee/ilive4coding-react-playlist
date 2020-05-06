@@ -32,5 +32,22 @@ Each video's code will be there in individual branches, it's details can be foun
           7. React what is a Pure Component
           8. React JS AdvancedTutorial
       - **Branch** - [ZY4ej1DViYI](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/ZY4ej1DViYI)
+     
+    - **Video Title-** [Hindi] React useEffect Hook in Depth | React JS Tutorial | ILive4Coding
+      - **Video Id-** ylRBcmVG1aE
+      - **Video Link-** https://www.youtube.com/watch?v=ylRBcmVG1aE
+      - **Video Description** - React useEffect Hook in Depth explained in Hindi in this React JS Tutorial Video.
+          In this Video following points are covered:-
+            1. What is useEffect Hook in React.
+            2. How to use useEffect Hook in React.
+            3. Difference between React lifecycle methods and useEffect.
+            4. How useEffect Hook cleanup works.
+            5. How to run useEffect Hook only on mount.
+            6. How to pass dependency in useEffect Hook.
+            7. How to run useEffect Hook only when some values update.
+            8. How to optimize useEffect Hook
+            9. React JS for Beginners tutorial
+
+      - **Branch** - [ylRBcmVG1aE](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/ylRBcmVG1aE)
 
 For any suggestions feel free to contact me at connect.ronit@gmail.com
