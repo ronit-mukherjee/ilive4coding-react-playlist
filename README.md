@@ -49,5 +49,26 @@ Each video's code will be there in individual branches, it's details can be foun
             9. React JS for Beginners tutorial
 
       - **Branch** - [ylRBcmVG1aE](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/ylRBcmVG1aE)
+    
+    - **Video Title-** React | How to Fetch Data from API | React JS Fetch or Ajax Tutorial for Beginners  | ILive4Coding
+      - **Video Id-** vb8seBZwx5c
+      - **Video Link-** https://www.youtube.com/watch?v=vb8seBZwx5c
+      - **Video Description** - In this Video the following points are covered:-
+        Popular ways of fetch data in React JS
+        How to use jQuery to fetch data in React JS
+        How to use axios to fetch data in React JS
+        How to use window fetch function to fetch data in React JS
+        How to make AJAX Call in React JS
+        How to implement AJAX Call in Functional Component
+        How to implement AJAX Call in Class based Component
+        What is useEffect Hook in React.
+        How to use useEffect Hook in React.
+        Difference between React lifecycle methods and useEffect.
+        How to run useEffect Hook only on mount.
+
+        This React JS for Beginners tutorial tries to solve your query regarding fetching data in React JS
+
+
+      - **Branch** - [vb8seBZwx5c](https://github.com/ronit-mukherjee/ilive4coding-react-playlist/tree/vb8seBZwx5c)
 
 For any suggestions feel free to contact me at connect.ronit@gmail.com
