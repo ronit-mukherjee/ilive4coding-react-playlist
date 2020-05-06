@@ -37,7 +37,7 @@ Each video's code will be there in individual branches, it's details can be foun
       - **Video Id-** ylRBcmVG1aE
       - **Video Link-** https://www.youtube.com/watch?v=ylRBcmVG1aE
       - **Video Description** - React useEffect Hook in Depth explained in Hindi in this React JS Tutorial Video.
-          In this Video following points are covered:-
+        In this Video following points are covered:-
             1. What is useEffect Hook in React.
             2. How to use useEffect Hook in React.
             3. Difference between React lifecycle methods and useEffect.
