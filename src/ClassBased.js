@@ -1,40 +1,40 @@
 import React from "react";
-import $ from "jquery";
-import axios from "axios";
 
-import CountriesTable from "./CountriesTable";
+class ClassBasedComponent extends React.PureComponent {
+  nameInputRef = React.createRef();
 
-class ClassBasedCounter extends React.PureComponent {
-  state = {
-    countriesData: null,
-  };
+  handleFormSubmit(e) {
+    e.preventDefault();
+    const enteredName = this.nameInputRef.current.value;
 
-  componentDidMount() {
-    /* fetch("https://restcountries.eu/rest/v2/all")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        this.setState({ countriesData: data });
-      })
-      .catch(console.error); */
-    /*  $.getJSON("https://restcountries.eu/rest/v2/all", (data) => {
-      console.log(data);
-      this.setState({ countriesData: data });
-    }); */
-    axios
-      .get("https://restcountries.eu/rest/v2/all")
-      .then((response) => {
-        console.log(response);
-        this.setState({ countriesData: response.data });
-      })
-      .catch(console.error);
+    if (enteredName) {
+      this.props.onNameAdded(enteredName);
+    }
   }
 
+  handleFormSubmit = this.handleFormSubmit.bind(this);
+
   render() {
-    return this.state.countriesData ? (
-      <CountriesTable data={this.state.countriesData} />
-    ) : null;
+    return (
+      <div className="container w-50 mt-5">
+        <form onSubmit={this.handleFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Enter your Name"
+              ref={this.nameInputRef}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    );
   }
 }
 
-export default ClassBasedCounter;
+export default ClassBasedComponent;

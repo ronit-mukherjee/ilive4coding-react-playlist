@@ -1,39 +1,38 @@
-import React, { memo, useState, useEffect } from "react";
-import CountriesTable from "./CountriesTable";
+import React, { memo, useRef } from "react";
 
-import $ from "jquery";
-import axios from "axios";
+let FunctionBasedComponent = (props) => {
+  const nameInputRef = useRef();
 
-let FunctionBasedCounter = () => {
-  const [countriesData, setCountriesData] = useState(null);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const enteredName = nameInputRef.current.value;
 
-  //USe effect as componentDidMount
-  useEffect(() => {
-    fetch("https://restcountries.eu/rest/v2/all")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCountriesData(data);
-      })
-      .catch(console.error);
+    if (enteredName) {
+      props.onNameAdded(enteredName);
+    }
+  };
 
-    /* $.getJSON("https://restcountries.eu/rest/v2/all", (data) => {
-      console.log(data);
-      setCountriesData(data);
-    }); */
-
-    /* axios
-      .get("https://restcountries.eu/rest/v2/all")
-      .then(({ data }) => {
-        console.log(data);
-        setCountriesData(data);
-      })
-      .catch(console.error); */
-  }, []);
-
-  return countriesData ? <CountriesTable data={countriesData} /> : null;
+  return (
+    <div className="container w-50 mt-5">
+      <form onSubmit={handleFormSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            placeholder="Enter your Name"
+            ref={nameInputRef}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 };
 
-FunctionBasedCounter = memo(FunctionBasedCounter);
+FunctionBasedComponent = memo(FunctionBasedComponent);
 
-export default FunctionBasedCounter;
+export default FunctionBasedComponent;
