@@ -1,37 +1,53 @@
 import React from "react";
 
 class ClassBasedComponent extends React.PureComponent {
-  nameInputRef = React.createRef();
-
-  handleFormSubmit(e) {
-    e.preventDefault();
-    const enteredName = this.nameInputRef.current.value;
-
-    if (enteredName) {
-      this.props.onNameAdded(enteredName);
+  renderAllTasks(tasks = []) {
+    if (tasks.length > 0) {
+      return tasks.slice().reverse().map(this.renderTask);
     }
+    return null;
   }
 
-  handleFormSubmit = this.handleFormSubmit.bind(this);
+  /* renderAllTasks(tasks = []) {
+    const taskComponentsArr = [];
+
+    tasks = tasks.reverse();
+    for (let i = 0; i < tasks.length; i++) {
+      taskComponentsArr.push(this.renderTask(tasks[i], i));
+    }
+
+    return taskComponentsArr;
+  } */
+
+  renderTask(task = null, index = null) {
+    if (task && index !== null) {
+      return (
+        <li
+          key={index}
+          className={`list-group-item ${index === 0 ? "active" : ""}`}
+        >
+          {task}
+        </li>
+      );
+    }
+  }
 
   render() {
     return (
       <div className="container w-50 mt-5">
-        <form onSubmit={this.handleFormSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              placeholder="Enter your Name"
-              ref={this.nameInputRef}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </form>
+        {this.props.tasks.length > 0 && (
+          <ul className="list-group">
+            {this.renderAllTasks(this.props.tasks)}
+          </ul>
+        )}
+        {this.props.tasks.length === 0 && (
+          <p
+            className="text-center text-uppercase font-weight-bolder text-secondary"
+            style={{ fontSize: "24px" }}
+          >
+            No Tasks Added Yet. Add Tasks in Above Form
+          </p>
+        )}
       </div>
     );
   }

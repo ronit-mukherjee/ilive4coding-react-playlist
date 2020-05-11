@@ -1,38 +1,42 @@
-import React, { memo, useRef } from "react";
+import React, { memo } from "react";
 
-let FunctionBasedComponent = (props) => {
-  const nameInputRef = useRef();
+/* const renderAllTasks = (tasks = []) => {
+  if (tasks.length > 0) {
+    return tasks.slice().reverse().map(renderTask);
+  }
+  return null;
+}; */
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const enteredName = nameInputRef.current.value;
+const renderAllTasks = (tasks = []) => {
+  const taskComponentsArr = [];
 
-    if (enteredName) {
-      props.onNameAdded(enteredName);
-    }
-  };
+  tasks = tasks.slice().reverse();
+  for (let i = 0; i < tasks.length; i++) {
+    taskComponentsArr.push(renderTask(tasks[i], i));
+  }
 
+  return taskComponentsArr;
+};
+
+const renderTask = (task = null, index = null) => {
+  if (task && index !== null) {
+    return (
+      <li
+        key={index}
+        className={`list-group-item ${index === 0 ? "active" : ""}`}
+      >
+        {task}
+      </li>
+    );
+  }
+};
+
+const FunctionBasedComponent = (props) => {
   return (
     <div className="container w-50 mt-5">
-      <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            placeholder="Enter your Name"
-            ref={nameInputRef}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      <ul className="list-group">{renderAllTasks(props.tasks)}</ul>
     </div>
   );
 };
 
-FunctionBasedComponent = memo(FunctionBasedComponent);
-
-export default FunctionBasedComponent;
+export default memo(FunctionBasedComponent);
