@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 /* const renderAllTasks = (tasks = []) => {
   if (tasks.length > 0) {
@@ -6,6 +6,29 @@ import React, { memo } from "react";
   }
   return null;
 }; */
+let onToggleTask;
+const onTaskClicked = (taskId) => {
+  if (taskId) {
+    onToggleTask(taskId);
+  }
+};
+
+const renderTask = (task = null, index = null) => {
+  if (task && index !== null) {
+    return (
+      <li
+        key={task.id}
+        className={`list-group-item ${
+          task.isActive ? "" : "list-group-item-dark"
+        }`}
+        //onClick={() => onTaskClicked(task.id)}
+        onClick={onTaskClicked.bind(null, task.id)}
+      >
+        {task.name}
+      </li>
+    );
+  }
+};
 
 const renderAllTasks = (tasks = []) => {
   const taskComponentsArr = [];
@@ -18,20 +41,9 @@ const renderAllTasks = (tasks = []) => {
   return taskComponentsArr;
 };
 
-const renderTask = (task = null, index = null) => {
-  if (task && index !== null) {
-    return (
-      <li
-        key={index}
-        className={`list-group-item ${index === 0 ? "active" : ""}`}
-      >
-        {task}
-      </li>
-    );
-  }
-};
-
 const FunctionBasedComponent = (props) => {
+  onToggleTask = props.onToggleTask;
+
   return (
     <div className="container w-50 mt-5">
       <ul className="list-group">{renderAllTasks(props.tasks)}</ul>
@@ -39,4 +51,4 @@ const FunctionBasedComponent = (props) => {
   );
 };
 
-export default memo(FunctionBasedComponent);
+export default FunctionBasedComponent;

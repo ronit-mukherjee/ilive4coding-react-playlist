@@ -1,6 +1,30 @@
 import React from "react";
 
-class ClassBasedComponent extends React.PureComponent {
+class ClassBasedComponent extends React.Component {
+  onTaskClicked(taskId = null) {
+    //console.log(taskId);
+    if (taskId) {
+      this.props.onToggleTask(taskId);
+    }
+  }
+
+  renderTask(task = null, index = null) {
+    if (task && index !== null) {
+      return (
+        <li
+          key={task.id}
+          className={`list-group-item ${
+            task.isActive ? "" : "list-group-item-dark"
+          }`}
+          onClick={this.onTaskClicked.bind(this, task.id)}
+        >
+          {task.name}
+        </li>
+      );
+    }
+  }
+  renderTask = this.renderTask.bind(this);
+
   renderAllTasks(tasks = []) {
     if (tasks.length > 0) {
       return tasks.slice().reverse().map(this.renderTask);
@@ -18,19 +42,6 @@ class ClassBasedComponent extends React.PureComponent {
 
     return taskComponentsArr;
   } */
-
-  renderTask(task = null, index = null) {
-    if (task && index !== null) {
-      return (
-        <li
-          key={index}
-          className={`list-group-item ${index === 0 ? "active" : ""}`}
-        >
-          {task}
-        </li>
-      );
-    }
-  }
 
   render() {
     return (
