@@ -1,5 +1,10 @@
 {
-  "name": "react-calculate-loan-eligibility",
+  "name": "ilive4coding-react-playlist",
+  "author": {
+    "name": "Ronit Mukherjee",
+    "email": "connect.ronit@gmail.com",
+    "url": "https://www.youtube.com/watch?v=V6iCEC-FQas&list=PLZjjdd9-SJS18Awh12gvGd9WErraVp93X"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
